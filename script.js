@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             heart.innerHTML = "❤️";
             heart.className = "floating-heart";
 
-            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.left = Math.random() * window.innerWidth + "px";
             heart.style.animationDelay = Math.random() * 3 + "s";
 
             document.body.appendChild(heart);
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             butterfly.innerHTML = "🦋";
             butterfly.className = "butterfly";
 
-            butterfly.style.left = Math.random() * 100 + "vw";
+            butterfly.style.left = Math.random() * window.innerWidth + "px";
             butterfly.style.animationDelay = Math.random() * 4 + "s";
 
             document.body.appendChild(butterfly);
