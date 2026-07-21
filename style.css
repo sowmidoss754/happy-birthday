@@ -105,3 +105,54 @@ button {
         opacity: 0;
     }
     }
+.floating-heart {
+    position: fixed !important;
+    bottom: -50px;
+    font-size: 30px;
+    animation: heartMove 6s linear infinite;
+    z-index: 9999;
+}
+
+@keyframes heartMove {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+.butterfly {
+    position: fixed !important;
+    bottom: -50px;
+    font-size: 30px;
+    animation: butterflyMove 8s linear infinite;
+    z-index: 9999;
+}
+
+@keyframes butterflyMove {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translate(100px, -25vh);
+    }
+
+    50% {
+        transform: translate(-100px, -50vh);
+    }
+
+    75% {
+        transform: translate(100px, -75vh);
+    }
+
+    100% {
+        transform: translate(-50px, -110vh);
+        opacity: 0;
+    }
+    }
