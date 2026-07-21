@@ -5,10 +5,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     button.addEventListener("click", function () {
 
-        wish.innerHTML =
-        "🎉 Happy Birthday Jason! 🎂<br><br>May your life be filled with happiness, success and endless smiles. ❤️✨";
+        wish.innerHTML = `
+        🎉 Happy Birthday Jason! 🎂
+        <br><br>
+        May your special day be filled with happiness, love and beautiful memories! ❤️
+        <br><br>
+        ✨ Keep smiling and Rock Ur dy daw! ✨
+        `;
 
         button.style.display = "none";
+
+        // Create floating hearts
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤️";
+            heart.className = "floating-heart";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDelay = Math.random() * 3 + "s";
+
+            document.body.appendChild(heart);
+        }
+
+        // Create butterflies
+        for (let i = 0; i < 10; i++) {
+            const butterfly = document.createElement("div");
+            butterfly.innerHTML = "🦋";
+            butterfly.className = "butterfly";
+
+            butterfly.style.left = Math.random() * 100 + "vw";
+            butterfly.style.animationDelay = Math.random() * 4 + "s";
+
+            document.body.appendChild(butterfly);
+        }
 
     });
 
