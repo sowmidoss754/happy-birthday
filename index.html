@@ -1,35 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Jason!❤️</title>
+document.addEventListener("DOMContentLoaded", function () {
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    const button = document.getElementById("surpriseBtn");
+    const wish = document.getElementById("wish");
 
-<body>
+    button.addEventListener("click", function () {
 
-    <div class="container">
+        wish.innerHTML = `
+            🎉 Happy Birthday Jason! 🎂
+            <br><br>
+            May your special day be filled with happiness, love and laughter!
+            <br><br>
+            ✨ Keep smiling and Rock Ur dy daw! ✨
+        `;
 
-        <h1>🎉 Happy Birthday Jason! 🎉</h1>
+        button.style.display = "none";
 
-        <h2>❤️ Rock Ur Day dey! ❤️</h2>
+        // Create floating hearts ❤️
+        for (let i = 0; i < 20; i++) {
 
-        <p id="message">
-            Wishing you endless happiness, love, laughter and success.
-            Have an amazing birthday! 🥳
-        </p>
+            const heart = document.createElement("div");
 
-        <button id="surpriseBtn">
-            🎁 Open Your Surprise
-        </button>
+            heart.innerHTML = "❤️";
+            heart.className = "floating-heart";
 
-        <div id="wish"></div>
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDelay = Math.random() * 5 + "s";
 
-    </div>
+            document.body.appendChild(heart);
+        }
 
-<script src="script.js"></script>
+        // Create butterflies 🦋
+        for (let i = 0; i < 10; i++) {
 
-</body>
-</html>
+            const butterfly = document.createElement("div");
+
+            butterfly.innerHTML = "🦋";
+            butterfly.className = "butterfly";
+
+            butterfly.style.left = Math.random() * 100 + "vw";
+            butterfly.style.animationDelay = Math.random() * 5 + "s";
+
+            document.body.appendChild(butterfly);
+        }
+
+    });
+
+});
