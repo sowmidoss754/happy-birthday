@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     button.addEventListener("click", function () {
 
+        wish.style.display = "block";
+
         wish.innerHTML = `
             🎉 Happy Birthday Jason! 🎂
             <br><br>
@@ -16,34 +18,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
         button.style.display = "none";
 
-        // Hearts ❤️
+        // Create floating hearts
         for (let i = 0; i < 20; i++) {
 
             const heart = document.createElement("div");
 
             heart.innerHTML = "❤️";
+
             heart.className = "floating-heart";
 
-            heart.style.position = "fixed";
-            heart.style.left = Math.random() * 100 + "%";
-            heart.style.bottom = "-50px";
-            heart.style.animationDelay = Math.random() * 5 + "s";
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.animationDelay =
+                Math.random() * 5 + "s";
 
             document.body.appendChild(heart);
         }
 
-        // Butterflies 🦋
+        // Create butterflies
         for (let i = 0; i < 10; i++) {
 
             const butterfly = document.createElement("div");
 
             butterfly.innerHTML = "🦋";
+
             butterfly.className = "butterfly";
 
-            butterfly.style.position = "fixed";
-            butterfly.style.left = Math.random() * 100 + "%";
-            butterfly.style.bottom = "-50px";
-            butterfly.style.animationDelay = Math.random() * 5 + "s";
+            butterfly.style.left =
+                Math.random() * 100 + "vw";
+
+            butterfly.style.animationDelay =
+                Math.random() * 5 + "s";
 
             document.body.appendChild(butterfly);
         }
