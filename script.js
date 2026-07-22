@@ -1,58 +1,228 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const button = document.getElementById("surpriseBtn");
-    const wish = document.getElementById("wish");
+    const introScreen =
+        document.getElementById("introScreen");
 
-    button.addEventListener("click", function () {
+    const birthdayScreen =
+        document.getElementById("birthdayScreen");
 
-        wish.style.display = "block";
+    const surpriseSection =
+        document.getElementById("surpriseSection");
 
-        wish.innerHTML = `
-            🎉 Happy Birthday Jason! 🎂
-            <br><br>
-            May your special day be filled with happiness,
-            love and beautiful memories! ❤️
-            <br><br>
-            ✨ Keep smiling and Rock Ur dy daw! ✨
-        `;
+    const startBtn =
+        document.getElementById("startBtn");
 
-        button.style.display = "none";
+    const surpriseBtn =
+        document.getElementById("surpriseBtn");
 
-        // Create floating hearts
-        for (let i = 0; i < 20; i++) {
+    const typewriterText =
+        document.getElementById("typewriterText");
 
-            const heart = document.createElement("div");
+    const song =
+        document.getElementById("birthdaySong");
 
-            heart.innerHTML = "❤️";
+    const slideImage =
+        document.getElementById("slideImage");
 
-            heart.className = "floating-heart";
 
-            heart.style.left = Math.random() * 100 + "vw";
+    /* =========================
+       TYPEWRITER MESSAGE
+    ========================= */
 
-            heart.style.animationDelay =
-                Math.random() * 5 + "s";
+    const message =
+        "A beautiful day for a beautiful soul... 💛";
 
-            document.body.appendChild(heart);
+    let index = 0;
+
+
+    function typeWriter() {
+
+        if (index < message.length) {
+
+            typewriterText.innerHTML +=
+                message.charAt(index);
+
+            index++;
+
+            setTimeout(typeWriter, 80);
+
         }
 
-        // Create butterflies
-        for (let i = 0; i < 10; i++) {
+    }
 
-            const butterfly = document.createElement("div");
+
+    /* =========================
+       START SURPRISE
+    ========================= */
+
+    startBtn.addEventListener(
+        "click",
+        function () {
+
+            introScreen.style.display = "none";
+
+            birthdayScreen.style.display = "flex";
+
+            typeWriter();
+
+            song.play().catch(function () {
+
+                console.log(
+                    "Music will play after user interaction."
+                );
+
+            });
+
+        }
+    );
+
+
+    /* =========================
+       OPEN YOUR SURPRISE
+    ========================= */
+
+    surpriseBtn.addEventListener(
+        "click",
+        function () {
+
+            birthdayScreen.style.display = "none";
+
+            surpriseSection.style.display = "block";
+
+            createHearts();
+
+            createButterflies();
+
+            startSlideshow();
+
+        }
+    );
+
+
+    /* =========================
+       PHOTO SLIDESHOW
+    ========================= */
+
+    const photos = [
+
+        "photo1.jpg",
+        "photo2.jpg",
+        "photo3.jpg",
+        "photo4.jpg",
+        "photo5.jpg",
+        "photo6.jpg",
+        "photo7.jpg",
+        "photo8.jpg",
+        "photo9.jpg",
+        "photo10.jpg"
+
+    ];
+
+
+    let photoIndex = 0;
+
+
+    function startSlideshow() {
+
+        setInterval(function () {
+
+            photoIndex++;
+
+            if (photoIndex >= photos.length) {
+
+                photoIndex = 0;
+
+            }
+
+            slideImage.style.opacity = 0;
+
+
+            setTimeout(function () {
+
+                slideImage.src =
+                    photos[photoIndex];
+
+                slideImage.style.opacity = 1;
+
+            }, 500);
+
+
+        }, 3000);
+
+    }
+
+
+    /* =========================
+       YELLOW FLOATING HEARTS
+    ========================= */
+
+    function createHearts() {
+
+        setInterval(function () {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className =
+                "floating-heart";
+
+            heart.innerHTML = "💛";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                (4 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+
+            setTimeout(function () {
+
+                heart.remove();
+
+            }, 8000);
+
+
+        }, 500);
+
+    }
+
+
+    /* =========================
+       FLYING BUTTERFLIES
+    ========================= */
+
+    function createButterflies() {
+
+        setInterval(function () {
+
+            const butterfly =
+                document.createElement("div");
+
+            butterfly.className =
+                "butterfly";
 
             butterfly.innerHTML = "🦋";
-
-            butterfly.className = "butterfly";
 
             butterfly.style.left =
                 Math.random() * 100 + "vw";
 
-            butterfly.style.animationDelay =
-                Math.random() * 5 + "s";
+            butterfly.style.animationDuration =
+                (5 + Math.random() * 5) + "s";
 
             document.body.appendChild(butterfly);
-        }
 
-    });
+
+            setTimeout(function () {
+
+                butterfly.remove();
+
+            }, 10000);
+
+
+        }, 1200);
+
+    }
 
 });
