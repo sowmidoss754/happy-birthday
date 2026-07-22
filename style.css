@@ -1,119 +1,89 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    background: #111;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000000, #1a1a1a);
     color: white;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     overflow-x: hidden;
 }
 
 .container {
-    padding: 50px 20px;
+    width: 90%;
+    max-width: 700px;
+    padding: 40px 20px;
 }
 
 h1 {
     font-size: 45px;
     color: #ffd700;
+    margin-bottom: 30px;
     text-shadow: 0 0 15px #ffd700;
 }
 
 h2 {
-    font-size: 32px;
-    color: #ff4f9a;
+    font-size: 30px;
+    color: #ff4f81;
+    margin-bottom: 30px;
 }
 
-#message {
-    font-size: 24px;
+p {
+    font-size: 22px;
     line-height: 1.8;
     color: white;
+    margin-bottom: 40px;
 }
 
 button {
-    margin-top: 30px;
-    padding: 20px 35px;
-    font-size: 22px;
-    font-weight: bold;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
     background: white;
     color: black;
+    border: none;
+    padding: 18px 35px;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Birthday Wish */
+button:hover {
+    transform: scale(1.08);
+}
+
 #wish {
-    margin-top: 30px;
+    display: none;
+    margin-top: 40px;
     font-size: 25px;
+    line-height: 1.8;
     color: #ff69b4;
     font-weight: bold;
-    line-height: 1.8;
 }
 
-/* Floating Hearts */
 .floating-heart {
     position: fixed;
     bottom: -50px;
     font-size: 30px;
-    animation: floatUp 6s linear infinite;
+    animation: floatUp 5s linear forwards;
     pointer-events: none;
-    z-index: 10;
 }
 
-@keyframes floatUp {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* Butterflies */
 .butterfly {
     position: fixed;
     bottom: -50px;
-    font-size: 30px;
-    animation: butterflyFly 8s linear infinite;
+    font-size: 28px;
+    animation: floatUp 7s linear forwards;
     pointer-events: none;
-    z-index: 10;
 }
 
-@keyframes butterflyFly {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-    }
-
-    25% {
-        transform: translate(100px, -25vh) rotate(20deg);
-    }
-
-    50% {
-        transform: translate(-100px, -50vh) rotate(-20deg);
-    }
-
-    75% {
-        transform: translate(100px, -75vh) rotate(20deg);
-    }
-
-    100% {
-        transform: translate(-50px, -110vh) rotate(-20deg);
-        opacity: 0;
-    }
-    }
-.floating-heart {
-    position: fixed !important;
-    bottom: -50px;
-    font-size: 30px;
-    animation: heartMove 6s linear infinite;
-    z-index: 9999;
-}
-
-@keyframes heartMove {
+@keyframes floatUp {
     0% {
         transform: translateY(0);
         opacity: 1;
@@ -125,34 +95,26 @@ button {
     }
 }
 
-.butterfly {
-    position: fixed !important;
-    bottom: -50px;
-    font-size: 30px;
-    animation: butterflyMove 8s linear infinite;
-    z-index: 9999;
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 17px;
+        padding: 15px 25px;
+    }
+
+    #wish {
+        font-size: 20px;
+    }
 }
-
-@keyframes butterflyMove {
-    0% {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-
-    25% {
-        transform: translate(100px, -25vh);
-    }
-
-    50% {
-        transform: translate(-100px, -50vh);
-    }
-
-    75% {
-        transform: translate(100px, -75vh);
-    }
-
-    100% {
-        transform: translate(-50px, -110vh);
-        opacity: 0;
-    }
-    }
